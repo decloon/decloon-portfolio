@@ -1,0 +1,23 @@
+{
+  "name": "decloon-portfolio",
+  "version": "1.0.0",
+  "description": "Welcome to the MLH Fellowship! During Week 1, you'll be using Flask to build a portfolio site. This site will be the foundation for activities we do in future weeks so spend time this week making it your own and reflect your personality!",
+  "homepage": "https://github.com/decloon/decloon-portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/decloon/decloon-portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decloon/decloon-portfolio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.10"
+  }
+}
