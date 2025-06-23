@@ -10,7 +10,7 @@ menu_items = [
     {"name": "Hobbies", "url": "/hobbies"},
     {"name": "Experience", "url": "/experience"},
     {"name": "Education", "url": "/education"},
-    {"name": "Where I've Been", "url": "/wib"}
+    {"name": "Travel", "url": "/wib"}
     ]
 
 hobby_items = [

@@ -26,13 +26,13 @@
       <div class="flex justify-between h-28">
         <div class="flex items-center gap-4">
             <img src="../static/img/favicon.ico" alt=""> 
-          <a href="#" class="text-3xl font-bold text-white">Declan Staunton</a>
+          <a href="#" class="text-3xl font-bold text-gray-600">Declan Staunton</a>
         </div>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
             {% for item in menu %}
-                <a href="{{ item.url }}" class="text-white hover:text-black font-bold text-xl">{{ item.name }}</a>
+                <a href="{{ item.url }}" class="{% if item.name == 'Home' %} text-black {% else %} text-gray-600 {% endif %} hover:text-black font-bold text-xl">{{ item.name }}</a>
             {% endfor %}
         </div>
       </div>
