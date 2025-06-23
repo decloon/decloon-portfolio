@@ -14,49 +14,51 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
 
-    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link lang='sass' rel="stylesheet" href="./static/styles/output.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <title>{{ title }}</title>
 </head>
 
-<body>
+<body class="bg-white">
     <div>
     <nav class="bg-green-400 shadow-md">
-    <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-      <div class="flex justify-between h-20">
-        <div class="flex items-center">
-          <a href="#" class="text-xl font-bold text-white-800">Declan Staunton</a>
+    <div class="max-w-7xl mx-auto px-12 sm:px-12 lg:px-16">
+      <div class="flex justify-between h-28">
+        <div class="flex items-center gap-4">
+            <img src="../static/img/favicon.ico" alt=""> 
+          <a href="#" class="text-3xl font-bold text-gray-600">Declan Staunton</a>
         </div>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-4">
-          <a href="#" class="text-white hover:text-black">About Me</a>
-          <a href="#" class="text-white hover:text-black">Hobbies</a>
-          <a href="#" class="text-white hover:text-black">Experience</a>
-          <a href="#" class="text-white hover:text-black">Where I've Been</a>
+        <div class="hidden md:flex items-center space-x-8">
+            {% for item in menu %}
+                <a href="{{ item.url }}" class="{% if item.name == 'Home' %} text-black {% else %} text-gray-600 {% endif %} hover:text-black font-bold text-xl">{{ item.name }}</a>
+            {% endfor %}
         </div>
       </div>
     </div>
     </nav>
     </div>
 
-    <div class="flex items-center bg-white h-[800px] gap-x">
+    <div class="items-center justify-center cotent-around bg-white h-[900px] gap-x">
+
+         <!-- Image Section -->
+        <div class="px-4 flex h-2/3 content-around justify-center items-center">
+            <img src="../static/img/Fellow.JPG" alt="Image" class="w-[400px] h-2/3 rounded-full border-4 border-gray-900 animate-fade-down">
+        </div>
         <!-- Text Section -->
-        <div class="px-4 w-1/2 justify-items-center">
-            <h2 class="text-2xl font-bold mb-2">Welcome to Our Site</h2>
-            <p class="text-gray-600">We provide high-quality services tailored to your needs. Explore our offerings and get in touch with us for more details.</p>
+        <div class="px-4 justify-items-center h-1/2">
+            <h1 class="text-4xl font-extrabold mb-2 animate-fade-in-up">About Me</h1>
+            <p class="text-gray-600 font-bold animate-fade-in-up text-2xl">Hey! I'm <span class="text-green-400 font-bold delay-250 animate-fade-in-up text-2xl">Declan Staunton</span>, a rising sophmore at Texas A&M University who is pasionate about learning new technologies and making cool projects.</p>
+            <p class="text-gray-600 font-bold animate-fade-in-up text-2xl">I love making projects that solve real world problems, working on projects such as Serenity.Ai (1st overall winner at HackUTA 6 👑) meant to help make the world just a bit better!</p>
+            <p class="text-gray-600 font-bold animate-fade-in-up text-2xl">Currently I have been interested in artificial intelligence, getting involved in research at Texas A&M, and love to connect with others who share similar interests.</p>
         </div>
 
-        <!-- Image Section -->
-        <div class="px-4 flex-grow items-center">
-            <img src="../static/img/logo.jpg" alt="Image" class="w-full h-auto rounded-lg object-cover h-[400px] align-baseline">
-        </div>
     </div>
-
-    <div class="flex bg-green-400"><div class="about_me">lorem Ipsum</div></div>
-    <div class="flex bg-white"><div class="hobbies">lorem Ipsum</div></div>
-    <div class="flex bg-green-400"><div class="experience">lorem Ipsum</div></div>
-    <div class="flex bg-white"><div class="where">lorem Ipsum</div></div>
+    <!-- contact section -->
+    <div class="bg-gray-900 absolute inset-x-0 bottom-0 h-32 flex flex-col justify-center items-center">
+        <h1 class="font-extrabold text-white text-2xl">Feel free to reach out here: </h1>
+        <a href="dstaunton@tamu.edu" class="font-extrabold text-white text-2xl"> dstaunton@tamu.edu</a>
+    </div>
 </body>
 </html>
