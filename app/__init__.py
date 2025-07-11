@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from peewee import *
 import datetime
 from playhouse.shortcuts import model_to_dict
+import hashlib
+from urllib.parse import urlencode
 
 load_dotenv()
 app = Flask(__name__)
@@ -30,7 +32,8 @@ menu_items = [
     {"name": "Hobbies", "url": "/hobbies"},
     {"name": "Experience", "url": "/experience"},
     {"name": "Education", "url": "/education"},
-    {"name": "Travel", "url": "/wib"}
+    {"name": "Travel", "url": "/wib"},
+    {"name": "Timeline", "url": "/timeline"}
     ]
 
 hobby_items = [
@@ -81,12 +84,33 @@ def education():
 def wib():
     return render_template('wib.html', title="Where I've Been", url=os.getenv("URL"), menu=menu_items, where_i_been = where_i_been)
 
+@app.route('/timeline')
+def timeline():
+    timeline_posts = get_time_line_post()['timeline_posts']
+    for post in timeline_posts:
+        # Set your variables here
+        email = post['email']
+        default = "mp"
+        size = 40
+        
+        # Encode the email to lowercase and then to bytes
+        email_encoded = email.lower().encode('utf-8')
+        
+        # Generate the SHA256 hash of the email
+        email_hash = hashlib.sha256(email_encoded).hexdigest()
+        
+        # Construct the URL with encoded query parameters
+        query_params = urlencode({'d': default, 's': str(size)})
+        gravatar_url = f"https://www.gravatar.com/avatar/{email_hash}?{query_params}"
+        print(gravatar_url)
+        post['img'] = gravatar_url
+    return render_template('timeline.html', title="Timeline", url=os.getenv("URL"), menu=menu_items, timeline=timeline_posts)
+
+
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name = request.form['name']
-    print(name)
     email = request.form['email']
-    print(email)
     content = request.form['content']
     timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
@@ -103,4 +127,4 @@ def get_time_line_post():
     }
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
