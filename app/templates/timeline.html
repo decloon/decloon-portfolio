@@ -63,6 +63,7 @@
                 // Create payload as new FormData object:
                 const payload = new FormData(form);
                 // Post the payload using Fetch:
+                //Location of fetch must be switched based on if it is used in deployment
                 fetch('http://declan-portfolio.duckdns.org:5000//api/timeline_post', {
                 method: 'POST',
                 body: payload,
