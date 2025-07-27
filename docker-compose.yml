@@ -1,15 +1,18 @@
-version: "3"
 services:
   myportfolio:
     container_name: myportfolio
     build: .
     restart: always
     env_file:
-      - .env
+     - .env
     ports:
-      - "5000:5000"
+     - "5000:5000"
+    volumes:
+     - .:/decloon-portfolio
     depends_on:
-      - mysql
+     - mysql
+    networks:
+     - backend
     
   mysql:
     container_name: mysql
@@ -19,6 +22,12 @@ services:
      - .env
     volumes:
      - mydatabase:/var/lib/mysql
+    networks:
+     - backend
 
 volumes:
   mydatabase:
+
+networks:
+  backend:
+    driver: bridge
