@@ -5,12 +5,8 @@ services:
     restart: always
     env_file:
      - .env
-    environment:
-     - FLASK_ENV=development
     ports:
      - "5000:5000"
-    volumes:
-     - .:/decloon-portfolio
     depends_on:
      - mysql
     
