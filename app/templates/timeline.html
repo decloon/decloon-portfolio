@@ -53,7 +53,7 @@
             <input type="text" id="email" name="email" value="example@gmail.com" class="text-gray-700 font-bold text-xl"><br>
             <label for="content" class="text-2xl text-green-400 font-extrabold mb-2">Content:</label><br>
             <input type="text" id="content" name="content" value="Type a message." class="text-gray-700 font-bold text-xl w-full h-1/3"><br><br>
-            <input type="submit" value="Submit" class="text-2xl text-green-400 font-extrabold mb-2 justify-bottom">
+            <input type="submit" value="Submit" class="text-2xl text-green-400 font-extrabold mb-2 justify-bottom"> <!-- MUST CHANGE LINK WHEN NOT DEPLOYED FOR LOCAL TESTING -->
         </form>  
         <script>
             const form = document.getElementById('form');
@@ -63,7 +63,7 @@
                 // Create payload as new FormData object:
                 const payload = new FormData(form);
                 // Post the payload using Fetch:
-                //Location of fetch must be switched based on if it is used in deployment
+                // Location of fetch must be switched based on if it is used in deployment
                 fetch('http://declan-portfolio.duckdns.org:5000//api/timeline_post', {
                 method: 'POST',
                 body: payload,
