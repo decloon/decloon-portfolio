@@ -19,7 +19,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-versions: '3.6.8' #Changes to desired python version
+          python-version: '3.6.8'
       
       - name: Setup Python Virtual Environment
         run: python -m venv python3-virtualenv
